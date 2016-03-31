@@ -25,17 +25,15 @@ class Unknown(BecomingAPopstar):
         print "Enter a number from 1 - 4 to begin your journey to pop stardom."
         
         action = int(raw_input("> "))
-        
-        if (action < 1 or action > 4):
-            print 'Please try again' 
-            action = int(raw_input("> "))
-            
-            if (action < 1 or action > 4):
-                print 'You lose because you can\'t follow directions'
-                exit(1)
-        else:
-            action = random.choice(choices.values())
-            print action
+        while True:
+	        if action > 0 and action < 5:
+		        break
+	        else:
+		        print 'Please try again' 
+    	        action = int(raw_input("> "))
+    	
+        action = random.choice(choices.values())
+        print action
        
         if (action == 'Cafes'):
             self.points = 10
@@ -48,41 +46,41 @@ class Unknown(BecomingAPopstar):
         
         print 'You have %d points towards becoming a pop star' % self.points
         
+        return 'discovered'
         
-class Discovered(Unknown):
-
-     def paths(self):
-        actions = {
-            1: 'Talent Competition',
-            2: 'Background Singer',
-            3: 'County Fairs',
-            4: 'Band Breaks up'
-        }
-        print 'All your hard word is paying off because you have been discovered, what do you do next?'
-        print "Enter a number from 1 -4 to continue on your journey to pop stardom." 
-        action = int(raw_input("> "))
-        
-        if (action < 1 or action > 4):
-            print 'Please try again' 
-            action = int(raw_input("> "))
-            
-            if (action < 1 or action > 4):
-                print 'You lose because you can\'t follow directions'
-                exit(1)
-        else:
-            action = random.choice(choices.values())
-            print action
-       
-        if (action == 'Talent Competition'):
-            self.points += 10
-        elif (action == 'Background Singer'):
-            self.points += 7
-        elif (action == 'County Fairs'):
-            self.points += 3
-        elif (action == 'Band Breaks up'):
-            self.points += 0
-        
-        print 'You have %d points towards becoming a pop star' % self.points
+# class Discovered(Unknown):
+# 
+#      def paths(self):
+#         actions = {
+#             1: 'Talent Competition',
+#             2: 'Background Singer',
+#             3: 'County Fairs',
+#             4: 'Band Breaks up'
+#         }
+#         print 'All your hard word is paying off because you have been discovered, what do you do next?'
+#         print "Enter a number from 1 -4 to continue on your journey to pop stardom." 
+# 
+#       action = int(raw_input("> "))
+#         while True:
+# 	        if action > 0 and action < 5:
+# 		        break
+# 	        else:
+# 		        print 'Please try again' 
+#     	        action = int(raw_input("> "))
+#     	
+#         action = random.choice(choices.values())
+#         print action
+#        
+#         if (action == 'Talent Competition'):
+#             self.points += 10
+#         elif (action == 'Background Singer'):
+#             self.points += 7
+#         elif (action == 'County Fairs'):
+#             self.points += 3
+#         elif (action == 'Band Breaks up'):
+#             self.points += 0
+#         
+#         print 'You have %d points towards becoming a pop star' % self.points
 
 mary = Unknown()
 mary.set_points()
