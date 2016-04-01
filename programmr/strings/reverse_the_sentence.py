@@ -1,6 +1,7 @@
 # Write a program to reverse the sentence wordwise.
 
-sentence = 'I live in a nice house.'
+print 'Please enter a sentence and I will work my magic.'
+sentence = raw_input('> ')
 
 words = sentence.split()
 
